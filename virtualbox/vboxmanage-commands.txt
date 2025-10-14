@@ -1,0 +1,24 @@
+# VBoxManage commands (example) to replicate VM networks and primary VM (adapt paths & names)
+# Create internal networks (VirtualBox uses names; VMs attach to these)
+# (These are just example notes — VirtualBox internal networks are created when VM NIC is attached.)
+
+# Example: creating pfSense VM (adapt ISO path and machine folder)
+VBoxManage createvm --name "pfSense" --ostype "FreeBSD_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "pfSense" --memory 2048 --cpus 2 --nic1 nat --nictype1 virtio --nic2 intnet --intnet2 "LAN 0" --nictype2 virtio --nic3 intnet --intnet3 "LAN 1" --nictype3 virtio --nic4 intnet --intnet4 "LAN 2" --nictype4 virtio
+VBoxManage createmedium disk --filename "C:\VMs\HomeLab\pfSense\pfSense-disk.vdi" --size 20000
+VBoxManage storagectl "pfSense" --name "SATA Controller" --add sata --controller IntelAhci
+VBoxManage storageattach "pfSense" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "C:\VMs\HomeLab\pfSense\pfSense-disk.vdi"
+VBoxManage storageattach "pfSense" --storagectl "SATA Controller" --port 1 --device 0 --type dvddrive --medium "C:\path\to\pfsense.iso"
+
+# Example: create Windows Server 2019 DC attached to OPT2 / LAN 2
+VBoxManage createvm --name "AD-DC" --ostype "Windows2019_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "AD-DC" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 2" --nictype1 virtio
+# Attach ISO and disk similarly as above.
+
+# Example: Kali attached to LAN (vtnet1 equivalent)
+VBoxManage createvm --name "Kali" --ostype "Debian_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "Kali" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 0" --nictype1 virtio
+
+# Notes:
+# - The blog uses VirtualBox GUI Expert mode; these commands match the NIC layout described.
+# - Adjust paths, CPU/RAM/disk sizes to suit your host.

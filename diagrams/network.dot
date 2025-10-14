@@ -1,0 +1,25 @@
+// Graphviz DOT file - Virtual Security Home Lab topology (editable)
+// Render with: dot -Tpng diagrams/network.dot -o network.png
+digraph home_lab {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+  pfSense [label="pfSense (Gateway)\nWAN: vtnet0 (NAT)\nLAN: vtnet1 10.0.0.1/24\nOPT1: vtnet2 10.6.6.1/24\nOPT2: vtnet3 10.80.80.1/24", shape=folder];
+  Kali [label="Kali Linux\n(Management/Attacker)\nConnected: LAN (10.0.0.0/24)"];
+  CyberRange [label="Cyber Range VMs\n(Example vulnerable hosts)\nConnected: OPT1 (10.6.6.0/24)"];
+  AD_DC [label="Windows Server 2019\nDomain Controller (lab.local)\nIP: 10.80.80.2\nDHCP/DNS authoritative", shape=component];
+  AD_Client1 [label="Windows 10 - Client1\nConnected: OPT2 (10.80.80.0/24)"];
+  AD_Client2 [label="Windows 10 - Client2\nConnected: OPT2 (10.80.80.0/24)"];
+  MalwareLab [label="Malware Analysis VMs\n(Windows analysis & isolated network)"];
+  Splunk [label="Splunk (SIEM)\nConnected: LAN"];
+  Tsurugi [label="Tsurugi (DFIR)\nConnected: LAN"];
+
+  pfSense -> WAN [label="Internet (Host NAT)"];
+  pfSense -> Kali [label="LAN"];
+  pfSense -> Splunk [label="LAN"];
+  pfSense -> Tsurugi [label="LAN"];
+  pfSense -> CyberRange [label="OPT1"];
+  pfSense -> AD_DC [label="OPT2"];
+  AD_DC -> AD_Client1;
+  AD_DC -> AD_Client2;
+  MalwareLab -> pfSense [label="isolated (optional)"];
+}

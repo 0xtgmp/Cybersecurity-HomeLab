@@ -1,0 +1,75 @@
+<!--
+Simplified pfSense config fragment (sample) - intended for lab import/editing.
+IMPORTANT: This is a minimal, illustrative XML fragment and NOT a full production config.
+Review and adapt before importing. Backup your pfSense before importing configs.
+-->
+<pfsense>
+  <interfaces>
+    <wan>
+      <if>vtnet0</if>
+      <ipaddr>dhcp</ipaddr>
+    </wan>
+    <lan>
+      <if>vtnet1</if>
+      <ipaddr>10.0.0.1</ipaddr>
+      <subnet>24</subnet>
+    </lan>
+    <opt1>
+      <if>vtnet2</if>
+      <ipaddr>10.6.6.1</ipaddr>
+      <subnet>24</subnet>
+    </opt1>
+    <opt2>
+      <if>vtnet3</if>
+      <ipaddr>10.80.80.1</ipaddr>
+      <subnet>24</subnet>
+    </opt2>
+  </interfaces>
+
+  <dhcpd>
+    <lan>
+      <range>
+        <from>10.0.0.11</from>
+        <to>10.0.0.243</to>
+      </range>
+      <gateway>10.0.0.1</gateway>
+    </lan>
+    <opt1>
+      <range>
+        <from>10.6.6.11</from>
+        <to>10.6.6.243</to>
+      </range>
+      <gateway>10.6.6.1</gateway>
+    </opt1>
+    <!-- OPT2 DHCP intentionally disabled (AD DC provides DHCP) -->
+  </dhcpd>
+
+  <dns>
+    <forwarder></forwarder>
+  </dns>
+
+  <filter>
+    <rules>
+      <!-- example: allow LAN to any (HTTP/HTTPS/ICMP) -->
+      <rule>
+        <type>pass</type>
+        <interface>lan</interface>
+        <protocol>tcp</protocol>
+        <src>lan</src>
+        <dst>any</dst>
+        <dstport>any</dstport>
+        <descr>Allow LAN out</descr>
+      </rule>
+      <!-- example: allow OPT2 to AD DNS/LDAP -->
+      <rule>
+        <type>pass</type>
+        <interface>opt2</interface>
+        <protocol>tcp</protocol>
+        <src>opt2</src>
+        <dst>10.80.80.2</dst>
+        <dstport>any</dstport>
+        <descr>Allow AD traffic to DC</descr>
+      </rule>
+    </rules>
+  </filter>
+</pfsense>

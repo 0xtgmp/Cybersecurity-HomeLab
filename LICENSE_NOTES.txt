@@ -1,0 +1,4 @@
+Please review licensing and third-party software agreements before redistributing:
+- The original blog content is CC BY-NC-SA 4.0 per author note.
+- Windows ISOs are evaluation copies from Microsoft (follow Microsoft terms).
+- pfSense CE is open-source; confirm you import CE configs only into lab/isolated instances.
