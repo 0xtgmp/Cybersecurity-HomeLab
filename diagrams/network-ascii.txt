@@ -1,4 +1,4 @@
-Simple ASCII topology (based on blog series)
+Simple ASCII topology
 
     [Internet - Host NAT]
              |
@@ -8,13 +8,13 @@ Simple ASCII topology (based on blog series)
 -------------------------------------------------
 |    LAN (vtnet1) - 10.0.0.0/24                |
 |  - Kali (management/attacker)                |
-|  - Splunk, Tsurugi, other security VMs       |
+|  - Vulnerable VMs (CTF targets)              |
 -------------------------------------------------
 |    OPT1 (vtnet2) - 10.6.6.0/24 (Cyber Range) |
-|  - Vulnerable VMs (CTF targets)              |
+|  - Splunk, Tsurugi, other security VMs       |
 -------------------------------------------------
 |    OPT2 (vtnet3) - 10.80.80.0/24 (AD Lab)    |
 |  - AD_DC (10.80.80.2)                        |
-|  - Win10 clients                              |
+|  - Win10 clients                             |
 -------------------------------------------------
 Note: pfSense should be booted first. AD_DC provides DHCP for OPT2 per the blog.
