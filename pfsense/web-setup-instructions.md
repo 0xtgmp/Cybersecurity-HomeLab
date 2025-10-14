@@ -5,6 +5,6 @@
 3. OPT1: 10.6.6.1/24 — enable DHCP range 10.6.6.11-10.6.6.243 (Cyber Range)
 4. OPT2: 10.80.80.1/24 — **DHCP disabled**. AD DC will provide DHCP and DNS for OPT2.
 5. Web UI: https://<LAN IP> (accept self-signed cert). Login with admin credentials set during install.
-6. Firewall rules: create minimal outbound allow rules per interface; create rules allowing OPT2->AD DC traffic (DNS, Kerberos, LDAP) as required.
+6. Firewall rules: create minimal outbound allow rules per interface; create rules allowing traffic from one interface to wan and blocking traffic between interfaces as required.
 7. NAT: leave default outbound NAT (automatic) unless you want static NAT behavior.
 8. Back up config after finishing: Diagnostics -> Backup/Restore -> Download config.xml
