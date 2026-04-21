@@ -1,10 +1,10 @@
 # Hello, I'm T.g.m.prakash
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0072b1?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guru-manikanta-prakash-thota-2973951b4)
 
-I am a recent graduate with a profound interest in technology and a dedication to solving complex problems.
+I am a B.Tech graduate with a profound interest in technology and a dedication to solving complex problems.
 
 ## Objective
-Motivated by a deep interest in cybersecurity, I have built this home lab to develop advanced practical skills in security operations, incident response, and threat detection. My goal is to leverage these skills and experience to pursue a role as a Security Operations Center (SOC) Tier 1 Analyst.
+Building this lab to develop deep, hands-on expertise in network security, threat detection, and incident response — forming the practical foundation for advanced academic research in cybersecurity.
 
 
 ## Certifications
@@ -25,7 +25,7 @@ This home lab is designed to simulate real-world security environments for red t
 | 8    | Malware Lab         | Dedicated malware analysis VMs (Windows+Linux)                     |
 | 9    | DFIR (Tsurugi)      | Tsurugi Linux for forensics and incident response                  |
 | 10   | SIEM (Splunk)       | Splunk for log collection and detection dashboards                 |
-
+| 11   | XDR (Wazuh) & SIEM  | same as SIEM & Threat Detection, File integrity & vulnerability detection |
 
 ## Key Tools and Technologies
 * VirtualBox: Hypervisor lab environments.
@@ -41,6 +41,8 @@ This home lab is designed to simulate real-world security environments for red t
 * Tsurugi Linux: Digital forensics and incident response toolkit.
 
 * Splunk: Centralized logging, alerting, SIEM Tool.
+
+* Wazuh: Threat detection, file integrity, vulnerability detection toolkit with SIEM functions.
 
 * Custom scripts/configs: Networking, automation, and threat simulation.
 
@@ -72,13 +74,9 @@ This home lab is designed to simulate real-world security environments for red t
 - `ad/README_AD.md` — Notes and manual steps for AD client join and snapshots.
 - `malware/flarevm-install.ps1` — Chocolatey + Winget-based helper script to install common FlareVM tooling (for a dedicated Windows analysis VM).
 - `kali/setup-kali.sh` — Kali helper script to install common tools and set SSH for remote control (for management/attacker VM).
+- `logs` - all logs collected by SIEM and XDR tools.
 - `LICENSE` — CC-BY-NC-SA 4.0 as used by the original blog (please respect original license).
 - `LICENSE_NOTES.txt` — Short note about what you must check before importing configs (safety & customization).
 
 ## Conclusion
 Throughout the process of building and configuring this home lab, whenever an issue arose—whether with firewall rules, network configurations, DHCP, DNS, or Active Directory DNS integration—I dedicated focused effort to deeply understand each problem and identify its root cause. By methodically troubleshooting and researching solutions, I was able to resolve technical challenges and strengthen my expertise in practical network security and infrastructure management. This hands-on, problem-solving mindset is a core part of my learning process and approach as a cybersecurity professional.
-
-
-## Reference
-Tutorials inspired by [David Varghese’s Virtual Security Home Lab Series](https://david-varghese.medium.com/).
-- [All parts index](https://blog.davidvarghese.net/categories/home-lab/)
