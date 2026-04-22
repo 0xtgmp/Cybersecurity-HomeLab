@@ -1,5 +1,4 @@
 # Hello, I'm T.g.m.prakash
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0072b1?&style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guru-manikanta-prakash-thota-2973951b4)
 
 I am a B.Tech graduate with a profound interest in technology and a dedication to solving complex problems.
 
