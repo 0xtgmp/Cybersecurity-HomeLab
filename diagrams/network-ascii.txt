@@ -1,20 +1,23 @@
-Simple ASCII topology
-
-    [Internet - Host NAT]
-             |
-           (NAT)
-             |
-           pfSense (vtnet0 WAN)
--------------------------------------------------
-|    LAN (vtnet1) - 10.0.0.0/24                |
-|  - Kali (management/attacker)                |
-|  - Vulnerable VMs (CTF targets)              |
--------------------------------------------------
-|    OPT1 (vtnet2) - 10.6.6.0/24 (Cyber Range) |
-|  - Splunk, Tsurugi, other security VMs       |
--------------------------------------------------
-|    OPT2 (vtnet3) - 10.80.80.0/24 (AD Lab)    |
-|  - AD_DC (10.80.80.2)                        |
-|  - Win10 clients                             |
--------------------------------------------------
-Note: pfSense should be booted first. AD_DC provides DHCP for OPT2 per the blog.
+[Internet - Host NAT]
+         |
+       (NAT)
+         |
+     pfSense (WAN: 192.168.x.x DHCP)
+----------------------------------------------
+| LAN (10.0.0.1/24)                         |
+|  - Kali Linux (management/attacker)       |
+----------------------------------------------
+| CYBER_RANGE / OPT1 (10.6.6.1/24)         |
+|  - Metasploitable2, DVWA, CTF targets     |
+----------------------------------------------
+| AD_LAB / OPT2 (10.80.80.1/24)            |
+|  - Win Server 2022 DC (10.80.80.2)        |
+|  - Win 10 clients                         |
+----------------------------------------------
+| ISOLATED / OPT3 (10.99.99.1/24)          |
+|  - Splunk SIEM (Ubuntu)                   |
+|  - Tsurugi DFIR                           |
+----------------------------------------------
+| SECURITY / OPT4 (10.10.10.1/24)          |
+|  - Wazuh XDR (v4.12.0)                   |
+----------------------------------------------

@@ -12,3 +12,7 @@ Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 # Provide safe secure password (change this)
 $securePwd = ConvertTo-SecureString 'P@ssw0rd!ChangeMe' -AsPlainText -Force
 Install-ADDSForest -DomainName "lab.local" -SafeModeAdministratorPassword $securePwd -DomainNetbiosName "LAB" -InstallDNS -Force
+
+# Enable logon auditing via Group Policy (run after AD DS is set up)
+auditpol /set /subcategory:"Logon" /success:enable /failure:enable
+auditpol /set /subcategory:"Account Logon" /success:enable /failure:enable

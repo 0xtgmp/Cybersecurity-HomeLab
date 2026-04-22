@@ -66,7 +66,10 @@ This home lab is designed to simulate real-world security environments for red t
 ## What's Included
 - `diagrams/network.dot` — Graphviz topology.
 - `diagrams/network-ascii.txt` — Simple ASCII topology.
-- `virtualbox/vboxmanage-commands.txt` — VBoxManage commands & VM settings based on the blog.
+`diagrams/All_VMs.png` | All 11 lab VMs in VirtualBox |
+| `diagrams/pfsense.png` | pfSense with 5 segmented networks and firewall rules |
+| `diagrams/splunk.png` | Splunk Enterprise querying Windows security events |
+- `virtualbox/vboxmanage-commands.txt` — VBoxManage commands & VM settings.
 - `pfsense/config-sample.xml` — *Simplified* sample pfSense config fragment (interfaces, DHCP for LAN/OPT1, OPT2 DHCP disabled).
 - `pfsense/web-setup-instructions.md` — GUI steps to finish pfSense configuration safely.
 - `ad/setup-domain.ps1` — PowerShell script to promote a Server 2019 VM to a Domain Controller (creates domain `lab.local`).
@@ -75,6 +78,7 @@ This home lab is designed to simulate real-world security environments for red t
 - `malware/flarevm-install.ps1` — Chocolatey + Winget-based helper script to install common FlareVM tooling (for a dedicated Windows analysis VM).
 - `kali/setup-kali.sh` — Kali helper script to install common tools and set SSH for remote control (for management/attacker VM).
 - `logs` - all logs collected by SIEM and XDR tools.
+- `logs/FINDINGS.md` — Analysis of collected logs with MITRE ATT&CK mappings
 - `LICENSE` — CC-BY-NC-SA 4.0 as used by the original blog (please respect original license).
 - `LICENSE_NOTES.txt` — Short note about what you must check before importing configs (safety & customization).
 

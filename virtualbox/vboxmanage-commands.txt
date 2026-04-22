@@ -19,6 +19,26 @@ VBoxManage modifyvm "AD-DC" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 
 VBoxManage createvm --name "Kali" --ostype "Debian_64" --register --basefolder "C:\VMs\HomeLab"
 VBoxManage modifyvm "Kali" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 0" --nictype1 virtio
 
-# Notes:
-# - The blog uses VirtualBox GUI Expert mode; these commands match the NIC layout described.
-# - Adjust paths, CPU/RAM/disk sizes to suit your host.
+# Wazuh XDR VM — attached to SECURITY network (OPT4)
+VBoxManage createvm --name "Wazuh" --ostype "Linux_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "Wazuh" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 4" --nictype1 virtio
+
+# Ubuntu (Splunk SIEM) — attached to ISOLATED network (OPT3)
+VBoxManage createvm --name "Ubuntu-Splunk" --ostype "Ubuntu_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "Ubuntu-Splunk" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 3" --nictype1 virtio
+
+# Metasploitable2 — attached to CYBER_RANGE (OPT1)
+VBoxManage createvm --name "Metasploitable2" --ostype "Linux_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "Metasploitable2" --memory 1024 --cpus 1 --nic1 intnet --intnet1 "LAN 1" --nictype1 virtio
+
+# Flare VM — isolated, no external network during analysis
+VBoxManage createvm --name "FlareVM" --ostype "Windows10_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "FlareVM" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 3" --nictype1 virtio
+
+# REMnux — malware analysis, isolated
+VBoxManage createvm --name "REMnux" --ostype "Linux_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "REMnux" --memory 2048 --cpus 2 --nic1 intnet --intnet1 "LAN 3" --nictype1 virtio
+
+# Tsurugi Linux — DFIR, ISOLATED network
+VBoxManage createvm --name "Tsurugi" --ostype "Linux_64" --register --basefolder "C:\VMs\HomeLab"
+VBoxManage modifyvm "Tsurugi" --memory 4096 --cpus 2 --nic1 intnet --intnet1 "LAN 3" --nictype1 virtio
