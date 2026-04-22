@@ -11,7 +11,7 @@ Building this lab to develop deep, hands-on expertise in network security, threa
 [![CEH](https://img.shields.io/badge/-CEH-FF0000?&style=for-the-badge&logo=ECCouncil&logoColor=white)](https://drive.google.com/file/d/17TZhmnXuVT2E2z4WE_YXyfgg8SPAdf03/view)
 
 ## Overview
-This home lab is designed to simulate real-world security environments for red teaming, blue teaming, malware analysis, and DFIR using VirtualBox and a range of open-source tools and operating systems. Inspired by David Varghese’s comprehensive guide, the lab provides hands-on experience with network segmentation, threat detection, monitoring, and incident response.
+This home lab is designed to simulate real-world security environments for red teaming, blue teaming, malware analysis, and DFIR using VirtualBox and a range of open-source tools and operating systems. The lab provides hands-on experience with network segmentation, threat detection, monitoring, and incident response.
 
 ## Lab Modules & Components
 | Step | Component           | Description                                                        |
