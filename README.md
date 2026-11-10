@@ -3,7 +3,7 @@
 I am a B.Tech graduate with a profound interest in technology and a dedication to solving complex problems.
 
 ## Objective
-Building this lab to develop deep, hands-on expertise in network security, threat detection, and incident response — forming the practical foundation for advanced academic research in cybersecurity.
+Building this lab to develop deep, hands-on expertise in network security, threat detection, and incident response — forming the practical foundation in cybersecurity.
 
 
 ## Certifications
